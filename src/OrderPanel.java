@@ -6,6 +6,15 @@ import javax.swing.table.JTableHeader;
 import java.awt.*;
 
 public class OrderPanel extends JFrame {
+    private JMenu tinhNang;
+    private JMenuItem exit;
+    private JButton saveButton;
+    private String[] columnNames;
+    private DefaultTableModel tableModel;
+    private JTable table;
+    private JTableHeader header;
+    private JScrollPane scrollPane;
+
     public OrderPanel() {
         setTitle("Highlands Coffee Management");
         setSize(900, 500);
@@ -16,15 +25,13 @@ public class OrderPanel extends JFrame {
         // Menu Bar
         JMenuBar menuBar = new JMenuBar();
         JMenu tinhNang = new JMenu("Tính năng");
-        JMenu exit = new JMenu("Exit");
+        JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(e -> System.exit(0));
         menuBar.add(tinhNang);
         menuBar.add(exit);
         setJMenuBar(menuBar);
 
         // Left Panel - Thông tin hóa đơn và khách hàng
-
-
         JPanel billInfoPanel = new JPanel(new GridLayout(2, 2, 5, 5));
         billInfoPanel.setBorder(BorderFactory.createTitledBorder("Thông tin hóa đơn"));
         billInfoPanel.add(new JLabel("ID Hóa đơn:"));
