@@ -1,4 +1,4 @@
-package PACKAGE_NAME;
+package PACKAGE_NAME.coffeeShop;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -17,6 +17,7 @@ public class OrderPanel extends JFrame {
     private JTable table;
     private JTableHeader header;
     private JScrollPane scrollPane;
+    private JTextField txtBill, txtDate, txtName, txtPhoneNumber, txtAddress, txtLoyatlyPoints, txtTotal, txtPromotion;
 
     public OrderPanel() {
         setTitle("Quản lý quán cà phê");
@@ -37,7 +38,7 @@ public class OrderPanel extends JFrame {
         menuBar = new JMenuBar();
         tinhNang = new JMenu("Tính năng");
         action = new JMenuItem("Quản lý");
-        home = new JMenuItem("Đơn hàng");
+        home = new JMenuItem("Hóa đơn");
         tinhNang.add(action);
         tinhNang.add(home);
         action.addActionListener(e -> {
@@ -56,20 +57,26 @@ public class OrderPanel extends JFrame {
         billInfoPanel = new JPanel(new GridLayout(2, 2, 5, 5));
         billInfoPanel.setBorder(BorderFactory.createTitledBorder("Thông tin hóa đơn"));
         billInfoPanel.add(new JLabel("ID Hóa đơn:"));
-        billInfoPanel.add(new JTextField());
+        txtBill = new JTextField();
+        billInfoPanel.add(txtBill);
         billInfoPanel.add(new JLabel("Ngày:"));
-        billInfoPanel.add(new JTextField());
+        txtDate = new JTextField();
+        billInfoPanel.add(txtDate);
 
         customerInfoPanel = new JPanel(new GridLayout(4, 2, 5, 5));
         customerInfoPanel.setBorder(BorderFactory.createTitledBorder("Thông tin khách hàng"));
         customerInfoPanel.add(new JLabel("Tên:"));
-        customerInfoPanel.add(new JTextField());
+        txtName = new JTextField();
+        customerInfoPanel.add(txtName);
         customerInfoPanel.add(new JLabel("Số điện thoại:"));
-        customerInfoPanel.add(new JTextField());
+        txtPhoneNumber = new JTextField();
+        customerInfoPanel.add(txtPhoneNumber);
         customerInfoPanel.add(new JLabel("Địa chỉ:"));
-        customerInfoPanel.add(new JTextField());
+        txtAddress = new JTextField();
+        customerInfoPanel.add(txtAddress);
         customerInfoPanel.add(new JLabel("Điểm tích lũy:"));
-        customerInfoPanel.add(new JTextField());
+        txtLoyatlyPoints = new JTextField();
+        customerInfoPanel.add(txtLoyatlyPoints);
 
         saveButton = new JButton("Lưu");
         saveButtonPanel = new JPanel();
@@ -105,10 +112,11 @@ public class OrderPanel extends JFrame {
 
         bottomPanel = new JPanel(new GridLayout(1, 5));
         bottomPanel.add(new JLabel("Tổng: "));
-        bottomPanel.add(new JTextField());
-        bottomPanel.add(new JTextField());
+        txtTotal = new JTextField();
+        bottomPanel.add(txtTotal);
         bottomPanel.add(new JLabel("Khuyến mãi: "));
-        bottomPanel.add(new JTextField());
+        txtPromotion = new JTextField();
+        bottomPanel.add(txtPromotion);
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
         // Add components to frame

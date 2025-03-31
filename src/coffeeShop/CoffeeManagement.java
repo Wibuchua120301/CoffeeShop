@@ -1,4 +1,4 @@
-package PACKAGE_NAME;
+package PACKAGE_NAME.coffeeShop;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
