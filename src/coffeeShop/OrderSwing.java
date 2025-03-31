@@ -1,12 +1,15 @@
 package PACKAGE_NAME.coffeeShop;
 
+import PACKAGE_NAME.oop.Store;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 
-public class OrderPanel extends JFrame {
-    private CoffeeManagement coffeeManagement;
+public class OrderSwing extends JFrame {
+    private Store store;
+    private CoffeeManagementSwing coffeeManagement;
     private CardLayout cardLayout;
     private JMenuBar menuBar;
     private JMenu tinhNang;
@@ -17,20 +20,24 @@ public class OrderPanel extends JFrame {
     private JTable table;
     private JTableHeader header;
     private JScrollPane scrollPane;
-    private JTextField txtBill, txtDate, txtName, txtPhoneNumber, txtAddress, txtLoyatlyPoints, txtTotal, txtPromotion;
+    private JTextField txtBill, txtDate, txtName, txtPhoneNumber, txtAddress, txtLoyatlyPoints, txtTotal, txtPromotion, txtAfterPromotion;
 
-    public OrderPanel() {
+    public OrderSwing() {
+
+        store = new Store();
+
         setTitle("Quản lý quán cà phê");
         setSize(700, 530);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        setResizable(false);
 
         // cardLayout
         cardLayout = new CardLayout();
         main = new JPanel(cardLayout);
         orderPanel = new JPanel();
-        coffeeManagement = new CoffeeManagement();
+        coffeeManagement = new CoffeeManagementSwing();
         main.add(orderPanel, "orderPanel");
         main.add(coffeeManagement, "managementPanel");
 
@@ -41,12 +48,14 @@ public class OrderPanel extends JFrame {
         home = new JMenuItem("Hóa đơn");
         tinhNang.add(action);
         tinhNang.add(home);
+
         action.addActionListener(e -> {
             cardLayout.show(main, "managementPanel");
         });
         home.addActionListener(e -> {
             cardLayout.show(main, "orderPanel");
         });
+
         exit = new JMenuItem("Thoát");
         exit.addActionListener(e -> System.exit(0));
         menuBar.add(tinhNang);
@@ -56,24 +65,30 @@ public class OrderPanel extends JFrame {
         // Left Panel - Thông tin hóa đơn và khách hàng
         billInfoPanel = new JPanel(new GridLayout(2, 2, 5, 5));
         billInfoPanel.setBorder(BorderFactory.createTitledBorder("Thông tin hóa đơn"));
+
         billInfoPanel.add(new JLabel("ID Hóa đơn:"));
         txtBill = new JTextField();
         billInfoPanel.add(txtBill);
+
         billInfoPanel.add(new JLabel("Ngày:"));
         txtDate = new JTextField();
         billInfoPanel.add(txtDate);
 
         customerInfoPanel = new JPanel(new GridLayout(4, 2, 5, 5));
         customerInfoPanel.setBorder(BorderFactory.createTitledBorder("Thông tin khách hàng"));
+
         customerInfoPanel.add(new JLabel("Tên:"));
         txtName = new JTextField();
         customerInfoPanel.add(txtName);
+
         customerInfoPanel.add(new JLabel("Số điện thoại:"));
         txtPhoneNumber = new JTextField();
         customerInfoPanel.add(txtPhoneNumber);
+
         customerInfoPanel.add(new JLabel("Địa chỉ:"));
         txtAddress = new JTextField();
         customerInfoPanel.add(txtAddress);
+
         customerInfoPanel.add(new JLabel("Điểm tích lũy:"));
         txtLoyatlyPoints = new JTextField();
         customerInfoPanel.add(txtLoyatlyPoints);
@@ -113,9 +128,15 @@ public class OrderPanel extends JFrame {
         bottomPanel = new JPanel(new GridLayout(1, 5));
         bottomPanel.add(new JLabel("Tổng: "));
         txtTotal = new JTextField();
+        txtTotal.setEditable(false);
+        txtAfterPromotion = new JTextField();
+        txtAfterPromotion.setEditable(false);
         bottomPanel.add(txtTotal);
+        bottomPanel.add(txtAfterPromotion);
+
         bottomPanel.add(new JLabel("Khuyến mãi: "));
         txtPromotion = new JTextField();
+        txtPromotion.setEditable(false);
         bottomPanel.add(txtPromotion);
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
@@ -127,6 +148,6 @@ public class OrderPanel extends JFrame {
     }
 
     public static void main(String[] args) {
-        new OrderPanel();
+        new OrderSwing();
     }
 }

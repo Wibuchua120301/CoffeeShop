@@ -6,13 +6,13 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 
-public class CoffeeManagement extends JPanel {
+public class CoffeeManagementSwing extends JPanel {
     private JPanel leftPanel, panelKhachHang, panelTongTien, centerPanel, bottomPanel, rightPanel;
     private JTable customerTable, invoiceTable, orderDetailsTable;
     private JTableHeader header, header2, header3;
     private JTextField txtTongDoanhThu;
 
-    public CoffeeManagement() {
+    public CoffeeManagementSwing() {
         setSize(900, 500);
         setLayout(new BorderLayout());
 
