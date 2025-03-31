@@ -1,4 +1,4 @@
-package PACKAGE_NAME.systemPanel;
+package PACKAGE_NAME;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
