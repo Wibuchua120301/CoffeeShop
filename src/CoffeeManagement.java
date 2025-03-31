@@ -7,6 +7,12 @@ import javax.swing.table.JTableHeader;
 import java.awt.*;
 
 public class CoffeeManagement extends JFrame {
+    private JMenu tinhNang;
+    private JMenuItem exit;
+    private JTable customerTable, invoiceTable, orderDetailsTable;
+    private JTableHeader header,header2,header3;
+    private JTextField txtTongDoanhThu;
+    private String[] invoiceColumns, orderDetailsColumns;
     public CoffeeManagement() {
         setTitle("Highlands Coffee Management");
         setSize(900, 500);
@@ -17,7 +23,7 @@ public class CoffeeManagement extends JFrame {
         // Menu Bar
         JMenuBar menuBar = new JMenuBar();
         JMenu tinhNang = new JMenu("Tính năng");
-        JMenu exit = new JMenu("Exit");
+        JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(e -> System.exit(0));
         menuBar.add(tinhNang);
         menuBar.add(exit);
