@@ -140,7 +140,6 @@ public class OrderSwing extends JFrame {
         bottomPanel.add(txtPromotion);
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
-        // Add components to frame
         orderPanel.add(leftPanel, BorderLayout.WEST);
         orderPanel.add(rightPanel, BorderLayout.CENTER);
         add(main);
