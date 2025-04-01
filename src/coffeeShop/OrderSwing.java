@@ -13,9 +13,9 @@ public class OrderSwing extends JFrame {
     private CardLayout cardLayout;
     private JMenuBar menuBar;
     private JMenu tinhNang;
-    private JMenuItem action, home, exit;
+    private JMenuItem action, home;
     private JPanel billInfoPanel, customerInfoPanel, saveButtonPanel, leftContainer, leftPanel, rightPanel, bottomPanel, orderPanel, main;
-    private JButton saveButton;
+    private JButton saveButton, exit;
     private DefaultTableModel tableModel;
     private JTable table;
     private JTableHeader header;
@@ -56,7 +56,11 @@ public class OrderSwing extends JFrame {
             cardLayout.show(main, "orderPanel");
         });
 
-        exit = new JMenuItem("Thoát");
+        exit = new JButton("Thoát");
+        exit.setBorder(null);
+        exit.setOpaque(false);
+        exit.setContentAreaFilled(false);
+        exit.setBorderPainted(false); // Loại bỏ viền nếu muốn
         exit.addActionListener(e -> System.exit(0));
         menuBar.add(tinhNang);
         menuBar.add(exit);
