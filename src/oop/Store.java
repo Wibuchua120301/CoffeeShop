@@ -14,5 +14,4 @@ public class Store {
         this.customerList = new ArrayList<>();
     }
 
-
 }

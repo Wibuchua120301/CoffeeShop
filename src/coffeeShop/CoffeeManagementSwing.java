@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class CoffeeManagementSwing extends JPanel {
     private JPanel leftPanel, panelKhachHang, panelTongTien, centerPanel, bottomPanel, rightPanel;
-    private JTable customerTable, invoiceTable, orderDetailsTable;
+    public JTable customerTable, invoiceTable, orderDetailsTable; // Đảm bảo public để truy cập từ OrderSwing
     private JTableHeader header, header2, header3;
     private JTextField txtTongDoanhThu;
 
@@ -67,5 +67,4 @@ public class CoffeeManagementSwing extends JPanel {
         add(rightPanel, BorderLayout.CENTER);
         setVisible(true);
     }
-
 }
